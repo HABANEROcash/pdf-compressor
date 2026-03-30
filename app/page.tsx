@@ -92,7 +92,7 @@ export default function Home() {
   return (
     <main dir="rtl" style={{ fontFamily: 'Arial', minHeight: '100vh', background: '#f5f5f5', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '40px 20px' }}>
       <h1 style={{ fontSize: 26, fontWeight: 'bold', color: '#1a1a1a', marginBottom: 8 }}>🗜️ ضاغط الملفات</h1>
-      <p style={{ color: '#666', marginBottom: 32 }}>اضغط حتى 10 صور دفعة واحدة بالحجم اللي تختاره</p>
+      <p style={{ color: '#666', marginBottom: 32 }}>اضغط حتى 10 صور مرة واحدة بالحجم اللي تختاره</p>
 
       {/* Size Slider */}
       <div style={{ background: 'white', borderRadius: 12, padding: 24, width: '100%', maxWidth: 500, marginBottom: 20, boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}>
@@ -137,7 +137,7 @@ export default function Home() {
         ) : (
           <div>
             <p style={{ fontSize: 40 }}>📁</p>
-            <p style={{ fontSize: 16, color: '#555' }}>اسحب وأفلت حتى 10 ملفات أو اضغط للاختيار</p>
+            <p style={{ fontSize: 16, color: '#555' }}>اختار لحد 10 ملفات</p>
             <p style={{ fontSize: 13, color: '#aaa' }}>JPG, PNG, WebP, HEIC مدعومة</p>
           </div>
         )}
