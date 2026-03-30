@@ -90,14 +90,14 @@ export default function Home() {
   };
 
   return (
-    <main style={{ fontFamily: 'Arial', minHeight: '100vh', background: '#f5f5f5', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '40px 20px' }}>
-      <h1 style={{ fontSize: 26, fontWeight: 'bold', color: '#1a1a1a', marginBottom: 8 }}>🗜️ File Compressor</h1>
-      <p style={{ color: '#666', marginBottom: 32 }}>Compress up to 10 images at once to your chosen size</p>
+    <main dir="rtl" style={{ fontFamily: 'Arial', minHeight: '100vh', background: '#f5f5f5', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '40px 20px' }}>
+      <h1 style={{ fontSize: 26, fontWeight: 'bold', color: '#1a1a1a', marginBottom: 8 }}>🗜️ ضاغط الملفات</h1>
+      <p style={{ color: '#666', marginBottom: 32 }}>اضغط حتى 10 صور دفعة واحدة بالحجم اللي تختاره</p>
 
       {/* Size Slider */}
       <div style={{ background: 'white', borderRadius: 12, padding: 24, width: '100%', maxWidth: 500, marginBottom: 20, boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}>
         <label style={{ fontWeight: 'bold', display: 'block', marginBottom: 16 }}>
-          Target Size: <span style={{ color: '#2563eb' }}>{formatSize(targetSize)}</span>
+          الحجم المطلوب: <span style={{ color: '#2563eb' }}>{formatSize(targetSize)}</span>
         </label>
         <input
           type="range"
@@ -126,19 +126,19 @@ export default function Home() {
         <input ref={inputRef} type="file" accept="image/*,.heic" multiple style={{ display: 'none' }} onChange={(e) => { if (e.target.files) handleFiles(e.target.files); }} />
         {files.length > 0 ? (
           <div>
-            <p style={{ fontSize: 16, fontWeight: 'bold' }}>📁 {files.length} file{files.length > 1 ? 's' : ''} selected</p>
+            <p style={{ fontSize: 16, fontWeight: 'bold' }}>📁 {files.length} {files.length === 1 ? 'ملف' : 'ملفات'} محددة</p>
             {files.map((f, i) => (
               <p key={i} style={{ fontSize: 13, color: '#666', margin: '2px 0' }}>
                 {f.name} — {(f.size / 1024).toFixed(0)} KB
-                {statuses[i] ? <span style={{ marginLeft: 8, color: statuses[i] === 'Done ✅' ? '#16a34a' : '#f59e0b' }}>{statuses[i]}</span> : null}
+                {statuses[i] ? <span style={{ marginRight: 8, color: statuses[i] === 'Done ✅' ? '#16a34a' : '#f59e0b' }}>{statuses[i]}</span> : null}
               </p>
             ))}
           </div>
         ) : (
           <div>
             <p style={{ fontSize: 40 }}>📁</p>
-            <p style={{ fontSize: 16, color: '#555' }}>Drag & drop up to 10 files or click to choose</p>
-            <p style={{ fontSize: 13, color: '#aaa' }}>JPG, PNG, WebP, HEIC supported</p>
+            <p style={{ fontSize: 16, color: '#555' }}>اسحب وأفلت حتى 10 ملفات أو اضغط للاختيار</p>
+            <p style={{ fontSize: 13, color: '#aaa' }}>JPG, PNG, WebP, HEIC مدعومة</p>
           </div>
         )}
       </div>
@@ -146,22 +146,22 @@ export default function Home() {
       {/* Compress Button */}
       {files.length > 0 && !isCompressing && downloadUrls.length === 0 && (
         <button onClick={compressAll} style={{ background: '#2563eb', color: 'white', border: 'none', borderRadius: 10, padding: '14px 40px', fontSize: 17, cursor: 'pointer', marginBottom: 20, fontWeight: 'bold' }}>
-          🗜️ Compress {files.length} File{files.length > 1 ? 's' : ''}
+          🗜️ اضغط {files.length} {files.length === 1 ? 'ملف' : 'ملفات'}
         </button>
       )}
 
-      {isCompressing && <p style={{ color: '#f59e0b', fontWeight: 'bold', marginBottom: 20 }}>⏳ Compressing...</p>}
+      {isCompressing && <p style={{ color: '#f59e0b', fontWeight: 'bold', marginBottom: 20 }}>⏳ جاري الضغط...</p>}
 
       {/* Download All */}
       {downloadUrls.length > 0 && (
         <div style={{ background: 'white', borderRadius: 12, padding: 24, width: '100%', maxWidth: 500, textAlign: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}>
-          <p style={{ color: '#16a34a', fontWeight: 'bold', fontSize: 16, marginBottom: 16 }}>✅ All files compressed!</p>
+          <p style={{ color: '#16a34a', fontWeight: 'bold', fontSize: 16, marginBottom: 16 }}>✅ تم ضغط جميع الملفات!</p>
           <button onClick={downloadAll} style={{ background: '#16a34a', color: 'white', border: 'none', padding: '12px 32px', borderRadius: 8, fontSize: 16, cursor: 'pointer', fontWeight: 'bold' }}>
-            ⬇️ Download All {downloadUrls.length} Files
+            ⬇️ تحميل {downloadUrls.length} {downloadUrls.length === 1 ? 'ملف' : 'ملفات'}
           </button>
           <p style={{ marginTop: 12 }}>
             <span onClick={() => { setFiles([]); setDownloadUrls([]); setStatuses([]); }} style={{ color: '#2563eb', cursor: 'pointer', fontSize: 14 }}>
-              + Compress more files
+              + اضغط ملفات أخرى
             </span>
           </p>
         </div>
