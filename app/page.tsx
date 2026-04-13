@@ -92,7 +92,7 @@ export default function Home() {
   return (
     <main dir="rtl" style={{ fontFamily: 'Arial', minHeight: '100vh', background: '#f5f5f5', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '40px 20px' }}>
       <h1 style={{ fontSize: 26, fontWeight: 'bold', color: '#1a1a1a', marginBottom: 8 }}>🗜️ ضاغط الملفات</h1>
-      <p style={{ color: '#666', marginBottom: 32 }}>اضغط حتى 10 صور مرة واحدة بالحجم اللي تختاره</p>
+      <p style={{ color: '#666', marginBottom: 32 }}>اضغط حتى 10 صور مرة واحدة بالحجم اللي تختاروه</p>
 
       {/* Size Slider */}
       <div style={{ background: 'white', borderRadius: 12, padding: 24, width: '100%', maxWidth: 500, marginBottom: 20, boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}>
@@ -154,7 +154,7 @@ export default function Home() {
 
       {/* Download All */}
       {downloadUrls.length > 0 && (
-        <div style={{ background: 'white', borderRadius: 12, padding: 24, width: '100%', maxWidth: 500, textAlign: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}>
+        <div style={{ background: 'white', borderRadius: 12, padding: 24, width: '100%', maxWidth: 500, textAlign: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.08)', marginBottom: 40 }}>
           <p style={{ color: '#16a34a', fontWeight: 'bold', fontSize: 16, marginBottom: 16 }}>✅ تم ضغط جميع الملفات!</p>
           <button onClick={downloadAll} style={{ background: '#16a34a', color: 'white', border: 'none', padding: '12px 32px', borderRadius: 8, fontSize: 16, cursor: 'pointer', fontWeight: 'bold' }}>
             ⬇️ تحميل {downloadUrls.length} {downloadUrls.length === 1 ? 'ملف' : 'ملفات'}
@@ -166,6 +166,58 @@ export default function Home() {
           </p>
         </div>
       )}
+
+      {/* Content Section for SEO + AdSense */}
+      <div style={{ width: '100%', maxWidth: 600, marginTop: 20 }}>
+
+        {/* How it works */}
+        <div style={{ background: 'white', borderRadius: 12, padding: 28, marginBottom: 20, boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}>
+          <h2 style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 16 }}>🤔 إزاي بيشتغل الموقع؟</h2>
+          <p style={{ color: '#444', lineHeight: 1.8, marginBottom: 12 }}>
+            موقع لَيَزيد بيساعدك تصغر أي صورة للحجم اللي محتاجه بدون ما تحتاج أي برنامج أو تسجيل. كل العملية بتتم على جهازك مباشرةً — مش بنرفع ملفاتك على أي سيرفر.
+          </p>
+          <p style={{ color: '#444', lineHeight: 1.8 }}>
+            بس اختار الحجم المطلوب من السلايدر، ارفع صورك، واضغط على زر الضغط — وهيتنزل الملف فوراً بالحجم الصح.
+          </p>
+        </div>
+
+        {/* Use cases */}
+        <div style={{ background: 'white', borderRadius: 12, padding: 28, marginBottom: 20, boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}>
+          <h2 style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 16 }}>📋 بيستخدمه مين؟</h2>
+          <ul style={{ color: '#444', lineHeight: 2, paddingRight: 20 }}>
+            <li>اللي بيقدموا على وظايف حكومية وبتتطلب حجم معين للصور</li>
+            <li>طلاب الجامعات اللي بيرفعوا أوراق على بوابات القبول</li>
+            <li>اللي بيقدموا على التجنيد أو الخدمة المدنية</li>
+            <li>أصحاب الشغل اللي محتاجين يرفعوا مستندات على مواقع حكومية</li>
+            <li>أي حد محتاج يصغر صورة بسرعة ومجاناً</li>
+          </ul>
+        </div>
+
+        {/* FAQ */}
+        <div style={{ background: 'white', borderRadius: 12, padding: 28, marginBottom: 20, boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}>
+          <h2 style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 16 }}>❓ أسئلة شائعة</h2>
+
+          <p style={{ fontWeight: 'bold', color: '#1a1a1a', marginBottom: 6 }}>هل الموقع مجاني؟</p>
+          <p style={{ color: '#444', marginBottom: 16, lineHeight: 1.8 }}>أيوه، مجاني 100% ومفيش أي رسوم خفية.</p>
+
+          <p style={{ fontWeight: 'bold', color: '#1a1a1a', marginBottom: 6 }}>هل صوري بتتحفظ على السيرفر؟</p>
+          <p style={{ color: '#444', marginBottom: 16, lineHeight: 1.8 }}>لا خالص. كل العملية بتتم على جهازك وملفاتك ما بتطلعش من عندك.</p>
+
+          <p style={{ fontWeight: 'bold', color: '#1a1a1a', marginBottom: 6 }}>ما هي أنواع الملفات المدعومة؟</p>
+          <p style={{ color: '#444', marginBottom: 16, lineHeight: 1.8 }}>الموقع بيدعم JPG، PNG، WebP، وكمان HEIC اللي بيستخدمها الآيفون.</p>
+
+          <p style={{ fontWeight: 'bold', color: '#1a1a1a', marginBottom: 6 }}>أقدر أضغط أكتر من صورة في نفس الوقت؟</p>
+          <p style={{ color: '#444', lineHeight: 1.8 }}>أيوه، تقدر ترفع لحد 10 صور دفعة واحدة وتحملهم كلهم بضغطة واحدة.</p>
+        </div>
+
+        {/* Privacy note */}
+        <div style={{ background: '#f0fdf4', borderRadius: 12, padding: 20, marginBottom: 40, border: '1px solid #bbf7d0', textAlign: 'center' }}>
+          <p style={{ color: '#166534', fontSize: 14, lineHeight: 1.8 }}>
+            🔒 ملفاتك خاصة — كل عملية الضغط بتتم على جهازك مباشرةً. مش بنشوف أو بنحفظ أي ملف.
+          </p>
+        </div>
+
+      </div>
     </main>
   );
 }
