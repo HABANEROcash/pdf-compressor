@@ -218,6 +218,11 @@ export default function Home() {
         </div>
 
       </div>
+      {/* Footer */}
+<div style={{ marginTop: 20, marginBottom: 20, display: 'flex', gap: 24, justifyContent: 'center' }}>
+  <a href="/privacy" style={{ color: '#888', fontSize: 13, textDecoration: 'none' }}>سياسة الخصوصية</a>
+  <a href="/contact" style={{ color: '#888', fontSize: 13, textDecoration: 'none' }}>تواصل معنا</a>
+</div>
     </main>
   );
 }
